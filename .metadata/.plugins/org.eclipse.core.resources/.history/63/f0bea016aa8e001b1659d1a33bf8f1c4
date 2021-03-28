@@ -1,0 +1,19 @@
+package com.daytwo.db;
+
+import java.io.Reader;
+
+import org.apache.ibatis.session.SqlSessionFactory;
+
+public class Controller {
+	
+	private SqlSessionFactory sqlSessionFactory;
+	
+	public SqlSessionFactory getSqlSessionFactory() {
+		
+		String resource = "com.daytwo.db.mybatis-config.xml";
+		Reader reader = null;
+		
+		return sqlSessionFactory;
+	}
+
+}

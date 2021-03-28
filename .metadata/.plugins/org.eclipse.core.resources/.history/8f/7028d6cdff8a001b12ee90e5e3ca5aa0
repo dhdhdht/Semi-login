@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>둘이짜는 데이트코스 Daytwo</title>
+<style type="text/css">
+
+	*{
+		margin: 0px;
+		padding: 0px;
+	}
+
+	.link_kakao{
+		background-color: #feeb35;
+		color: black;
+		height: 42px;
+		font-size: 15px;
+		line-height: 42px;
+		box-sizing: border-box;
+	}
+
+</style>
+</head>
+<body>
+
+	<h1>DAYTWO 로그인 페이지</h1>
+	
+	<fieldset>
+		<legend class="blind">로그인</legend>
+		<div class="id_area">
+			<div class="input_row" id="id_area">
+				<span class="input_box">
+					<input type="text" id="id" placeholder="아이디" />
+				</span>
+			</div>
+		</div>
+		<div class="pw_area">
+			<div class="input_row" id="pw_area">
+				<span class="input_box">
+					<input type="password" id="pw" placeholder="비밀번호" />
+				</span>
+			</div>
+		</div>
+		<br/>
+		<input type="submit" title="로그인" alt="로그인" value="로그인" class="" id="" />
+		<br/>
+		<div>
+			<a href="javascript:kakaologin();" class="link_kakao">
+			<img alt="image" src="resources/img/kakaologin.png" style="width:100; height:auto;"/></a>
+		</div>
+	</fieldset>
+</body>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+	//javascript key:804de9dc4d252e4123548ce16301b21c
+	Kakao.init("804de9dc4d252e4123548ce16301b21c");
+	
+	function kakaologin(){
+		Kakao.Auth.login({
+			//사용동의한 항목들(추가항목 동의받기)
+			scope: 'profile, account_email, gender',
+			//로그인 성공
+			success: function(authObj){
+				console.log(authObj);
+				Kakao.API.request({
+					//로그인한 사용자의 정보 가져오기
+					url:'/v2/user/me',
+					success: function(res){
+						const kakao_account = res.kakao_account;
+						console.log(kakao_account);
+					}
+				});
+			},
+			fail: function(error){
+				console.log(error);
+			}
+		});
+	}
+</script>
+</html>

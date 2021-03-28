@@ -1,0 +1,5 @@
+package com.daytwo.dao;
+
+public class MarketPlaceDao {
+
+}

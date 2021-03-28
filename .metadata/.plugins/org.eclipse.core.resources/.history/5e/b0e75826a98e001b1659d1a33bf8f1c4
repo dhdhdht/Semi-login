@@ -1,0 +1,5 @@
+package com.daytwo.dto;
+
+public class MarketPlaceDto {
+
+}

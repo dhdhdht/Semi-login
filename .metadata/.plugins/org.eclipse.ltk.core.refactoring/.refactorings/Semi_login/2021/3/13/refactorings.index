@@ -1,0 +1,20 @@
+1616381082969	Rename resource 'db.propertice'
+1616381901470	Delete element
+1616764218510	Rename resource 'naverlogin.png.PNG'
+1616772523897	Rename resource 'controller'
+1616772530076	Delete element
+1616814158970	Encapsulate field 'member_no'
+1616814161492	Encapsulate field 'member_id'
+1616814163659	Encapsulate field 'member_pw'
+1616814166035	Encapsulate field 'member_name'
+1616814168204	Encapsulate field 'member_email'
+1616814170433	Encapsulate field 'member_phone'
+1616814172608	Encapsulate field 'member_addr'
+1616814175477	Encapsulate field 'member_enabled'
+1616814181024	Encapsulate field 'member_role'
+1616826239123	Delete element
+1616826364970	Delete element
+1616826408926	Delete element
+1616826433093	Rename type 'Controller'
+1616854007803	Rename type 'LoginController'
+1616872972754	Rename resource 'main.jsp'
