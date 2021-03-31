@@ -40,7 +40,7 @@ public class RegistServlet extends HttpServlet {
 		
 		} else if(command.equals("insertuser")) {
 			String member_id = request.getParameter("member_id");
-			String member_pw = request.getParameter("member_pw");
+			String member_pw = biz.encodeHash(request.getParameter("member_pw"));
 			String member_name = request.getParameter("member_name");
 			String member_addr = request.getParameter("member_addr");
 			String member_phone = request.getParameter("member_phone");
@@ -58,7 +58,7 @@ public class RegistServlet extends HttpServlet {
 			
 		} else if(command.equals("loginres")) {
 			String member_id = request.getParameter("userId");
-			String member_pw = request.getParameter("userPw");
+			String member_pw = biz.encodeHash(request.getParameter("userPw"));
 			
 			LoginDto dto = new LoginDto();
 			
@@ -82,6 +82,7 @@ public class RegistServlet extends HttpServlet {
 
 		
 		} else if (command.equals("logout")) {
+			session.invalidate();
 			response.sendRedirect("index.html");
 			
 		} else if (command.equals("idCheck")) {
@@ -92,6 +93,14 @@ public class RegistServlet extends HttpServlet {
 			PrintWriter out = response.getWriter();
 			out.print(res);
 			System.out.println("res : " + res);
+			
+		} else if (command.equals("main")) {
+			response.sendRedirect("index.html");
+			
+		} else if (command.equals("findId")) {
+			response.sendRedirect("findId.jsp");
+		} else if (command.equals("findPw")) {
+			response.sendRedirect("findPw.jsp");
 		}
 	}
 	

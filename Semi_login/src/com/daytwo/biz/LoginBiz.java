@@ -24,5 +24,9 @@ public class LoginBiz {
 	public int idCheck(String member_id) {
 		return dao.idCheck(member_id);
 	}
+	
+	public String encodeHash(String pass) {
+		return dao.encodeHash(pass);
+	}
 
 }

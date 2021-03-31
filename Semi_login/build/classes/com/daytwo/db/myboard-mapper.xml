@@ -21,8 +21,8 @@
   		VALUES(MEMBERSEQ.NEXTVAL, #{member_id}, #{member_pw}, #{member_name}, #{member_addr}, #{member_phone}, #{member_email}, 'Y', 'USER')
   	</insert>
   	
-  	<select id="login" resultType="loginDto">
-  		SELECT *
+  	<select id="login" parameterType="loginDto" resultType="loginDto">
+  		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_ADDR, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_ENABLED, MEMBER_ROLE
   		FROM MEMBER
   		WHERE MEMBER_ID = #{member_id}
   		AND MEMBER_PW = #{member_pw}

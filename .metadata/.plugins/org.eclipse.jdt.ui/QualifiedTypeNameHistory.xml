@@ -13,4 +13,6 @@
     <fullyQualifiedTypeName name="com.daytwo.dao.LoginDao"/>
     <fullyQualifiedTypeName name="com.daytwo.db.SqlMapConfig"/>
     <fullyQualifiedTypeName name="com.daytwo.dto.LoginDto"/>
+    <fullyQualifiedTypeName name="java.lang.StringBuilder"/>
+    <fullyQualifiedTypeName name="java.security.MessageDigest"/>
 </qualifiedTypeNameHistroy>

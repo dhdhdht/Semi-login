@@ -1,5 +1,7 @@
 package com.daytwo.dao;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -47,16 +49,19 @@ public class LoginDao extends SqlMapConfig {
 	// 로그인
 	public LoginDto login(String member_id, String member_pw) {
 		SqlSession session = null;
-		LoginDto dto = null;
-				
-		Map<String, String> map = new HashMap<String, String>();
+		LoginDto dto = new LoginDto();
+		System.out.println("login : " + member_id);
+		System.out.println("pw : "+ member_pw);
 		
-		map.put("member_id", member_id);
-		map.put("member_pw", member_pw);
+		dto.setMember_id(member_id);
+		dto.setMember_pw(member_pw);
 		
 		try {
 			session = getSqlSessionFactory().openSession(true);
-			 dto = session.selectOne("loginmapper.login", map);
+			 dto = session.selectOne("loginmapper.login", dto);
+			 System.out.println("test: " + dto.getMember_enabled());
+			 
+			 
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
@@ -66,6 +71,7 @@ public class LoginDao extends SqlMapConfig {
 		return dto;
 	}
 	
+	//아이디 유무 확인
 	public int idCheck(String member_id) {
 		SqlSession session = null;
 		int res = 0;
@@ -84,6 +90,25 @@ public class LoginDao extends SqlMapConfig {
 		} 
 		
 		return res;
+	}
+	
+	//비밀번호 암호화(md5, sha-1, sha-256, sha-512)
+	public String encodeHash(String pass) {
+		String encodeString = "";
+		
+		try {
+			MessageDigest md = MessageDigest.getInstance("SHA-256");
+			md.update(pass.getBytes());
+			byte[] encodeData = md.digest();
+			for(int i = 0; i < encodeData.length; i++) {
+				encodeString += Integer.toHexString(encodeData[i]&0xFF);
+			}
+			System.out.println(encodeString);
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+		
+		return encodeString;
 	}
 
 }

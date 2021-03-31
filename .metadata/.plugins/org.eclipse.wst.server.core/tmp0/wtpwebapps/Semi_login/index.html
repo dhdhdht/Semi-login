@@ -9,7 +9,7 @@
 		margin: 0px;
 		padding: 0px;
 	}
-
+	
 </style>
 </head>
 <body>
@@ -36,8 +36,20 @@
 			</div>
 		</div>
 		<br/>
-		<input type="submit" title="로그인" alt="로그인" value="로그인" class="" id="" />
-		<input type="button" title="회원가입" alt="회원가입" value="회원가입" onclick="location.href='regist.do?command=registForm'" />
+		<div>
+			<input type="submit" title="로그인" alt="로그인" value="로그인" width="auto" class="" id="" />
+		</div>
+		<ul class="hi">
+			<li>
+				<a href="regist.do?command=findId">아이디 찾기</a>
+			</li>
+			<li>
+				<a href="regist.do?command=findPw">비밀번호 찾기</a>
+			</li>
+			<li>
+				<a href="regist.do?command=registForm">회원가입</a>
+			</li>
+		</ul>
 		<br/><br/>
 		<div>
 			<a href="javascript:kakaologin();" class="link_kakao">
@@ -82,7 +94,7 @@
 <!-- 네이버아디디로로그인 초기화 Script -->
 <script type="text/javascript">
 	//var naver_id_login = new naver_id_login("등록한 ClientID 값", "등록한 Callback URL 값");
-	var naver_id_login = new naver_id_login("zOyYdXgy2oaLzPhWWPFb", "http://localhost:8787/Semi_login/");
+	var naver_id_login = new naver_id_login("zOyYdXgy2oaLzPhWWPFb", "http://localhost:8787/regist.jsp/");
 	var state = naver_id_login.getUniqState();
 	naver_id_login.setButton("green", 3,40);
 	naver_id_login.setDomain(".service.com");

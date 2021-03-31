@@ -22,7 +22,10 @@ CREATE TABLE MEMBER(
 );
 
 INSERT INTO MEMBER
-VALUES(MEMBERSEQ.NEXTVAL, 'admin', 'admin1234', '관리자', '서울', '010-0000-0000', 'admin@admin.com', 'Y', 'ADMIN');
+VALUES(MEMBERSEQ.NEXTVAL, 'admin1', 'admin', '관리자', '서울', '011-0000-0000', 'admin1@admin.com', 'Y', 'ADMIN');
 
 SELECT *
 FROM MEMBER;
+
+DELETE MEMBER
+WHERE MEMBER_ID = 'admin1';
