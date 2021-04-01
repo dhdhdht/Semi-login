@@ -30,7 +30,7 @@
 </head>
 <body>
 <% 
-	LoginDto dto = (LoginDto) session.getAttribute("dto"); 
+	LoginDto dto = (LoginDto) session.getAttribute("dbdto"); 
 
 %>
 

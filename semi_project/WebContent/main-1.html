@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<title> 함께하는 여행 'DayTwo' </title>
+<head>
+<meta charset="UTF-8">
+<title> 둘이하는 여행 'DayTwo' </title>
+<link href="main.jsp" rel="stylesheet">
+<style>
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.header {
+	margin-top: 3px;
+	margin-left: 20px;
+	color: white;
+	width: 66%;
+	height: 60px;
+	background-color: rgb(197, 197, 197);
+	position: relative;
+	left:50%;
+	transform:translateX(-50%); 
+}
+
+#bannerText .header {
+    position: relative; 
+}
+
+.tittle{
+	transform:translateY(20%);
+	vertical-align:middle; 
+	text-align: center;
+	font-family: Georgia, "Malgun Gothic", serif;
+	font-size: 30px;
+	font-weight: bolder;
+}
+
+.section{ 
+width: 66%;
+margin: 20px;
+position: relative;
+left:50%;
+transform:translateX(-50%); 
+}
+
+.section input[id*="slide"]{
+display: none;
+}
+
+.section .slidewrap{
+width: 100%;
+}
+
+.section .slidewrap {width:100%;margin:0 auto;overflow:hidden;}
+	.section .slidelist {white-space:nowrap;font-size:0;}
+	.section .slidelist > li {display:inline-block;vertical-align:middle;width:100%;transition:all .5s;}
+	.section .slidelist > li > a {display:block;position:relative;overflow:hidden;} 
+	.section .slidelist > li > a img {width:100%;}
+
+
+.section .slidelist label {position:absolute;z-index:1;top:50%;transform:translateY(-50%);padding:50px;cursor:pointer;}
+.section .slidelist .left {left:-300px;background:url('resources/img/left.png') center center / 100% no-repeat;} 
+.section .slidelist .right {right:-300px;background:url('resources/img/right.png') center center / 100% no-repeat;} 
+
+
+.section [id="slide01"]:checked ~ .slidewrap .slidelist >li {transform:translateX(0%);}
+.section [id="slide02"]:checked ~ .slidewrap .slidelist >li {transform:translateX(-100%);}
+.section [id="slide03"]:checked ~ .slidewrap .slidelist >li {transform:translateX(-200%);}
+
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .left {left:30px;transition:all .35s ease .4s;} 
+	.section input[id="slide01"]:checked ~ .slidewrap li:nth-child(1) .right {right:30px;transition:all .35s ease .4s;} 
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .left {left:30px;transition:all .35s ease .4s;} 
+	.section input[id="slide02"]:checked ~ .slidewrap li:nth-child(2) .right {right:30px;transition:all .35s ease .4s;}
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .left {left:30px;transition:all .35s ease .4s;} 
+	.section input[id="slide03"]:checked ~ .slidewrap li:nth-child(3) .right {right:30px;transition:all .35s ease .4s;} 
+
+	
+</style>
+</head>
+
+<body>
+	<div class="header" onclick="location.href='main.jsp'" id="bannerText">
+ 	<div class="tittle"> 함께 하는 여행, 둘이 하는 여행 'Day Two' </div>
+	</div>
+
+	<div class="section">
+		<input type="radio" name="slide" id="slide01" checked> <input
+			type="radio" name="slide" id="slide02"> <input type="radio"
+			name="slide" id="slide03">
+
+		<div class="slidewrap">
+			<ul class="slidelist">
+				<li>
+				<a>
+				<label for="slide03" class="left"></label> 
+				<img src="resources/img/pic1.jpg" onclick="location.href='main.jsp'"> 
+				<label for="slide02" class="right"></label>
+			
+				</a>
+				</li>
+				
+				<li>
+				<a> 	 
+				<label for="slide01" class="left"></label> 
+				<img src="resources/img/pic2.jpg" onclick="location.href='main.jsp'"> 
+				<label for="slide03" class="right"></label>
+				</a>
+				</li>
+				
+				<li>
+				<a> 
+				<label for="slide02" class="left"></label> 
+				<img src="resources/img/pic3.jpg" onclick="location.href='main.jsp'">
+				<label for="slide01" class="right"></label>
+				</a>
+				</li>
+				</ul>
+				</div>	
+		</div>
+
+</body>
+</html>

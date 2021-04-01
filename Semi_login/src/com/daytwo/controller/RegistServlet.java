@@ -35,7 +35,10 @@ public class RegistServlet extends HttpServlet {
 		
 		String command = request.getParameter("command");
 		
-		if(command.equals("registForm")){
+		if (command.equals("loginForm")) {
+			response.sendRedirect("login.jsp");
+			
+		} else if(command.equals("registForm")){
 			response.sendRedirect("regist.jsp");
 		
 		} else if(command.equals("insertuser")) {

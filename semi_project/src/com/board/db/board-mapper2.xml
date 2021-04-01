@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.board.mapper">
+	<resultMap type="MyBoardDto" id="boardResult">
+		<result property="seq" column="SEQ" />
+		<result property="writer" column="WRITER" />
+		<result property="content" column="CONTENT" />
+		<result property="regdate" column="REGDATE" />
+	</resultMap>
+
+
+
+	<select id="selectAllList" resultMap="boardResult">
+		SELECT SEQ, WRITER, TITLE, CONTENT, REGDATE
+		FROM BOARD ORDER BY SEQ DESC 
+	</select>
+
+
+
+</mapper>
+

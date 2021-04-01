@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.user.mapper">
+
+	<resultMap type="UserDto" id="userResult">
+		<result property="userid" column="USERID" />
+		<result property="userpw" column="USERPW" />
+		<result property="username" column="USERNAME" />
+		<result property="usergender" column="USERGENDER" />
+		<result property="useremail" column="USEREMAIL" />
+		<result property="userprofile" column="USERPROFILE" />
+	</resultMap>
+
+	<select id="selectAllList" resultMap="userResult">
+		SELECT USERID, USERPW FROM MYUSER
+	</select>
+	
+	<insert id="insert" parameterType="UserDto">
+			INSERT INTO MYUSER VALUES(#{userid}, ${USERPW}, ${USERNAME}, ${USERGENDER}, ${USEREMAIL}, ${USERPROFILE})	
+	</insert>
+	
+	<select id="selectOneByID" resultType="UserDto">
+		SELECT * FROM MYUSER WHERE USERID= #{userid}
+	</select>
+	
+	<select id="userProfile" resultType="UserDto">
+		SELECT USERPROFILE FROM MYUSER WHERE USERID = #{userid}
+	</select>
+	
+	<update id="updateProfile" parameterType="UserDto">		
+		UPDATE MYUSER SET USERPROFILE = #{userprofile} WHERE USERID = #{userid}
+	</update>
+</mapper>

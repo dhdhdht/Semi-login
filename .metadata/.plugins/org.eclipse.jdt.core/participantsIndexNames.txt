@@ -7,3 +7,7 @@ C:\workspace\Semi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\30870914
 \login\src
 C:\workspace\Semi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4287926913.index
 \Jsp04_LoginBoard\src
+C:\workspace\Semi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\1329277300.index
+\semi_project\src
+C:\workspace\Semi\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\727383477.index
+\Semi_login2\src

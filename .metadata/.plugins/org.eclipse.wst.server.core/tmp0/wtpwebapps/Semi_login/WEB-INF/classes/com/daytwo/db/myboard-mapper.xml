@@ -29,9 +29,22 @@
   	</select>
   	
   	<select id="idCheck" resultType="int">
-  		SELECT *
+  		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_ADDR, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_ENABLED, MEMBER_ROLE
   		FROM MEMBER
   		WHERE MEMBER_ID = #{member_id}
+  	</select>
+  	
+  	<!-- 네이버 로그인 영역 -->
+  	<select id="naverCheck" resultType="int">
+  		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_ADDR, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_ENABLED, MEMBER_ROLE
+  		FROM MEMBER
+  		WHERE MEMBER_EMAIL = #{member_email}
+  	</select>
+  	
+  	<select id="logininfo" parameterType="String" resultType="loginDto">
+  		SELECT MEMBER_NO, MEMBER_ID, MEMBER_PW, MEMBER_NAME, MEMBER_ADDR, MEMBER_PHONE, MEMBER_EMAIL, MEMBER_ENABLED, MEMBER_ROLE
+  		FROM MEMBER
+  		WHERE MEMBER_EMAIL = #{member_email}
   	</select>
   	
   	

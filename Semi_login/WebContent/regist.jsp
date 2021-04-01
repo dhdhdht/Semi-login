@@ -182,7 +182,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="가입하기" class="signbtn" onclick="allCheck();" />
-					<input type="button" value="메인으로" class="mainbtn" onclick="location.href='regist.do?command=main'" />
+					<input type="button" value="메인으로" class="mainbtn" onclick="location.href='regist.do?command=loginForm'" />
 				</td>
 			</tr>
 		</table>

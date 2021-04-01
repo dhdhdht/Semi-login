@@ -25,8 +25,16 @@ public class LoginBiz {
 		return dao.idCheck(member_id);
 	}
 	
+	public int naverCheck(String member_email) {
+		return dao.naverCheck(member_email);
+	}
+	
 	public String encodeHash(String pass) {
 		return dao.encodeHash(pass);
+	}
+	
+	public LoginDto getlogininfo(String member_email) {
+		return dao.getlogininfo(member_email);
 	}
 
 }

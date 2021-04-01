@@ -92,6 +92,46 @@ public class LoginDao extends SqlMapConfig {
 		return res;
 	}
 	
+	//naver로그인 이메일 중복체크
+	public int naverCheck(String member_email) {
+		SqlSession session = null;
+		int res = 0;
+		System.out.println("dao : " + member_email);
+		try {
+			session = getSqlSessionFactory().openSession(true);
+			res = session.selectOne("loginmapper.naverCheck", member_email);
+			
+			if(res>0) {
+				res=1;
+			}else {
+				res=0;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} 
+		
+		return res;
+	}
+	
+	public LoginDto getlogininfo(String member_email) {
+		LoginDto dto = new LoginDto();
+		//멤버이메일을 보내서 sql문에 넣어서 select로 dto가져와야지
+		SqlSession session = null; 
+		System.out.println("info : " + member_email);
+		try {
+			session = getSqlSessionFactory().openSession(true);
+			dto = session.selectOne("loginmapper.logininfo", member_email);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+		return dto;
+	}
+	
+	
 	//비밀번호 암호화(md5, sha-1, sha-256, sha-512)
 	public String encodeHash(String pass) {
 		String encodeString = "";
