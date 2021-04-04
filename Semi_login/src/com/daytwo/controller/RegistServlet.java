@@ -49,9 +49,17 @@ public class RegistServlet extends HttpServlet {
 			String member_phone = request.getParameter("member_phone");
 			String member_email = request.getParameter("member_email");
 			
-			LoginDto dto = new LoginDto(0, member_id, member_pw, member_name, member_addr, member_phone, member_email, null, null);
+			LoginDto dto = new LoginDto(0, member_id, member_pw, member_name, member_addr, member_phone, member_email, null, null, null);
+			
+			System.out.println(dto.getMember_id());
+			System.out.println(dto.getMember_pw());
+			System.out.println(dto.getMember_name());
+			System.out.println(dto.getMember_addr());
+			System.out.println(dto.getMember_phone());
+			System.out.println(dto.getMember_email());
 			
 			int res = biz.insertUser(dto);
+			System.out.println(res);
 			if (res > 0) {
 				response.sendRedirect("index.html");
 			} else {
@@ -86,7 +94,7 @@ public class RegistServlet extends HttpServlet {
 		
 		} else if (command.equals("logout")) {
 			session.invalidate();
-			response.sendRedirect("index.html");
+			response.sendRedirect("login.jsp");
 			
 		} else if (command.equals("idCheck")) {
 			String member_id = request.getParameter("member_id");

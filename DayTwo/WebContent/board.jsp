@@ -1,0 +1,200 @@
+
+<%@page import="com.board.biz.BoardBizImpl"%>
+<%@page import="com.board.biz.BoardBiz"%>
+<%@page import="com.board.util.Paging"%>
+<%@page import="com.board.dto.BoardDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@ page contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
+<% response.setContentType("text/html; charset=UTF-8"); %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>♡Day Two♡</title>
+
+<link href="resources/css/board_virw.css" rel="stylesheet" type="text/css" />
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+<style type="text/css">
+
+*{
+		padding: 0px;
+		margin: 0px;
+	}
+	div{
+		border : 1px dashed blue;
+		margin:10px;
+	}
+	#header{
+    text-align: left;
+	}
+	#body{
+		height: 700px;
+		text-align:center;
+	}
+	
+	#body .search{
+		width:70%;
+		height:5%;
+		text-align:right;
+		display:inline-block;
+		
+	}
+	.styled-table{
+		border-collapse: collapse;
+	    margin: 25px 0;
+	    font-size: 1.0em;
+	    font-family: sans-serif;
+	    min-width: 500px;
+	    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+		
+	
+	}
+	.table{
+		width:70%;
+		height:70%;
+		display:inline-block;	
+	}
+	#body .paging{
+		width:30%;
+		height:10%;
+		display:inline-block;
+		
+		
+	}
+	#body .insert-button{
+		width:70%;
+		height:5%;
+		text-align:right;
+		display:inline-block;
+		
+	}
+	.table .styled-table thead tr{
+		background-color: #009879;
+   		color: #ffffff;
+   		text-align:left;
+	}
+	.table .styled-table th,
+	.table .styled-table td{
+	 padding: 12px 15px;
+	}
+	.table .styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+	}
+	
+	.table .styled-table tbody tr:last-of-type {
+	    border-bottom: 2px solid #009879;
+	}
+	
+	.table .styled-table tbody .active-row{
+	
+	 font-weight: bold;
+    color: #009879;
+	}
+	
+</style>
+
+</head>
+
+<body>
+<%
+	List<BoardDto> list = (List<BoardDto>)request.getAttribute("list");
+	
+	int pageNum = request.getParameter("page") == null ? 1 : Integer.parseInt(request.getParameter("page"));
+	
+	int totalCount  = Integer.parseInt(request.getAttribute("totalCount")+"");
+	
+	Paging paging = new Paging();
+	paging.setPageNo(pageNum);
+	paging.setPageSize(5);
+	paging.setTotalCount(totalCount);
+	
+	BoardBiz biz = new BoardBizImpl();
+%>
+
+<div id="header">
+	<h1>제목</h1>
+		<div>
+			<span><a href="#">메뉴1</a></span>
+			<span><a href="#">메뉴2</a></span>
+			<span><a href="#">메뉴3</a></span>
+			<span><a href="#">메뉴4</a></span>
+		</div>
+	</div>
+	
+	<div id="body">
+		<div class="search">
+				<span>
+					<input id="input" type="text" placeholder="이이디로 검색" onkeyup="" size="20">
+					<button onclick="">검색</button>
+				</span>
+		</div>
+		<div class="table">
+			<table class="styled-table">
+				<thead>
+					<col width="200px"/>
+					<col width="500px"/>
+					<col width="400px"/>
+					<col width="200px"/>
+					<col width="200px"/>
+					<tr>
+						<th>번호</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일자</th>
+						<th>조회수</th>
+					</tr>
+				 </thead>
+				 <%
+				 	for(BoardDto dto : list) {
+				 %>
+				<tbody>
+					<tr class="active-row">
+						<td><%=dto.getFreecomm_seq() %></td>
+						<td><a href="board.do?command=select&freecomm_id=<%=dto.getFreecomm_id()%>"><%=dto.getFreecomm_title() %></a></td>
+						<td><%=dto.getFreecomm_id() %></td>
+						<td><%=dto.getFreecomm_regdate() %></td>
+						<td><%=dto.getFreecomm_read() %></td>
+					</tr>
+				</tbody>
+				<%
+				 	}
+				%>
+			</table>
+		</div>
+		<div class="insert-button">
+			<input type="button" value="글작성" style="text-align:right;" onclick="location.href='board.do?command=insert'"/>
+		</div>
+		<div class="paging">
+			<input type="button" onclick="pageMove(<%=paging.getFirstPageNo()%>)" value="[처음]">
+			<input type="button" onclick="pageMove(<%=paging.getPrevPageNo()%>)" value="[이전]">
+	
+<%
+			for (int i = paging.getStartPageNo(); i <= paging.getEndPageNo(); i++) {
+%>
+			<a onclick="pageMove(<%=i%>)"><%=i%></a>
+<%
+			}
+%>
+	
+			<input type="button" onclick="pageMove(<%=paging.getNextPageNo()%>)" value="[다음]">
+			<input type="button" onclick="pageMove(<%=paging.getFinalPageNo()%>)" value="[마지막]">
+		</div>
+		<script>
+			function pageMove(page){
+				location.href='board.do?command=boardlist&page='+page
+			}
+		</script>
+	
+	</div>
+	
+	<div id="footer">
+		<address>copyright &copy; all rights reserved qclass....</address>
+	</div>
+	
+	
+
+</body>
+</html>

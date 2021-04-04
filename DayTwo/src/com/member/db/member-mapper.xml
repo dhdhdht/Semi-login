@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.member.mapper">
+
+	<resultMap type="MemberDto" id="memberResult">
+		<result property="member_id" column="MEMBER_ID" />
+		<result property="member_pw" column="MEMBER_PW" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_addr" column="MEMBER_ADDR" />
+		<result property="member_phone" column="MEMBER_EMAIL" />
+		<result property="member_enabled" column="MEMBER_ENABLED" />
+		<result property="member_role" column="MEMBER_ROLE"/>
+		<result property="member_profile" column="MEMBER_PROFILE"/>
+	</resultMap>
+
+	<select id="selectAllList" resultMap="memberResult">
+		SELECT * FROM MEMBER
+	</select>
+	
+	<insert id="insert" parameterType="MemberDto">
+		INSERT INTO MEMBER VALUES(#{member_id}, #{member_pw}, #{member_name}, #{member_addr}, #{member_email}, #{member_enabled}, #{member_role}, #{member_profile})	
+	</insert>
+	
+	<select id="selectOneByID" resultType="MemberDto">
+		SELECT * FROM MEMBER WHERE MEMBER_ID= #{member_id}
+	</select>
+	
+	<select id="getProfile" resultType="MemberDto">
+		SELECT MEMBER_PROFILE FROM MEMBER WHERE MEMBER_ID = #{member_id}
+	</select>
+	
+	
+	<update id="updateProfile" parameterType="MemberDto">		
+		UPDATE MEMBER SET MEMBER_PROFILE = #{member_profile} WHERE MEMBER_ID = #{member_id}
+	</update>
+</mapper>

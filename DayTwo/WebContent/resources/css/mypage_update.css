@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	div{
+		border : 1px dashed blue;
+		margin:10px;
+	}
+	#body{
+		height: 400px;
+	}
+	#left{
+		width:48%;
+		height:90%;
+		float:left;		
+	
+	}
+	#right{
+		width:48%;
+		height:90%;
+		float:right;	
+	
+	}

@@ -1,0 +1,122 @@
+@charset "UTF-8";
+
+
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	div{
+		border : 1px dashed blue;
+		margin:10px;
+	}
+	#wrap{
+		height: 900px;
+		display: flex;
+        flex-direction: column;
+		align-items: center;
+	}
+	
+	.icon{
+		
+		width:15%;
+		height:5%;
+	}
+	.home-icon{
+	float:left;
+	}
+	.my-icon{
+	float:right;
+	}
+	
+	#wrap #header{
+		width:95%;
+		text-align :center;
+		
+	}
+	#wrap #search{
+		width:95%;
+		height: 30px;
+		text-align :right;
+		
+	}
+	
+	
+	
+	#wrap #body{
+		height: 700px;
+		width:95%;
+		
+	}
+	
+	#wrap #body #left{
+		width:15%;
+		height:90%;
+		float:left;	
+	}
+	
+	#wrap #body #left div{
+		margin-bottom:30px;
+		text-align:right;
+	}
+	#wrap #body #left #sponsor{
+		margin-top:95%;
+	}
+	#wrap #body #left-s {
+		width:4%;
+		height:10%;
+		float:left;	
+	}
+	#wrap #body #left-s #left-menu-button {
+		width:80%;
+		height:80%;
+			
+	}
+	#wrap #body #center{
+		width:50%;
+		height:90%;
+		float:left;	
+		margin-left:4%;
+		text-align :center;
+	}
+	#wrap #body #right-s {
+		width:4%;
+		height:10%;
+		float:right;	
+	}
+	#wrap #body #right-s #right-menu-button {
+		width:80%;
+		height:80%;
+		
+	}
+	#wrap #body #right{
+		width:15%;
+		height:90%;
+		float:right;
+		text-align :center;	
+	
+	}
+	#wrap #body #right div{
+		margin-bottom:23px;
+		
+	}
+	#wrap #body #right #check-button{
+		height:40px;
+		
+	}
+	
+	#wrap #body #right #button1{
+		width:40%;
+		height:60%;
+		float:left;
+	}
+	#wrap #body #right #button2{
+		width:40%;
+		height:60%;
+		float:right;
+	}
+	#wrap #footer{
+	
+		width:95%;
+		text-align :center;
+	}
+

@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+*{
+		padding: 0px;
+		margin: 0px;
+	}
+	div{
+		border : 1px dashed blue;
+		margin:10px;
+	}
+	#header{
+    text-align: left;
+	}
+	#body{
+		height: 750px;
+		text-align:center;
+	}
+	.recommend-wrap{
+		height:700px;
+	}
+	#body .recommend-wrap .img{
+		height:200px;
+		width:200px;
+		margin:50px;
+		display:inline-block;
+	}

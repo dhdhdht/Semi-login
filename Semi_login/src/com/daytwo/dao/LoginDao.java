@@ -33,11 +33,12 @@ public class LoginDao extends SqlMapConfig {
 
 	// 회원가입 시 회원 추가
 	public int insertUser(LoginDto dto) {
-
 		int res = 0;
+		System.out.println("insert : " + dto);
 
 		try (SqlSession session = getSqlSessionFactory().openSession(true);) {
 			res = session.insert("loginmapper.reginsert", dto);
+			System.out.println("insert2 : " + dto);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -59,8 +60,7 @@ public class LoginDao extends SqlMapConfig {
 		try {
 			session = getSqlSessionFactory().openSession(true);
 			 dto = session.selectOne("loginmapper.login", dto);
-			 System.out.println("test: " + dto.getMember_enabled());
-			 
+			 //System.out.println("test: " + dto.getMember_enabled());
 			 
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -86,7 +86,7 @@ public class LoginDao extends SqlMapConfig {
 				res=0;
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
+			System.out.println(e);
 		} 
 		
 		return res;
@@ -143,7 +143,7 @@ public class LoginDao extends SqlMapConfig {
 			for(int i = 0; i < encodeData.length; i++) {
 				encodeString += Integer.toHexString(encodeData[i]&0xFF);
 			}
-			System.out.println(encodeString);
+			//System.out.println(encodeString);
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
 		}

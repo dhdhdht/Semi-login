@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+
+:root{
+	--body-background-color: #f5f6f7;
+	--font-color: #4e4e4e;
+	--border-gray-color : #dadada;
+	--naver-green-color: #04c75a;
+	--naver-green-border-color: #06b350;
+}
+
+li{
+	list-style:none;
+}
+
+*{
+	margin:0;
+	padding:0;
+	border: 1px dotted red;
+}
+
+body{
+	background:var(--body-background-color);
+}
+
+.main-box{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 21px;
+}
+.main-box .main-wrap{
+	width:768px;
+
+}
+.main-box .main-wrap .lang-wrap .lang
+{
+	width: 96px;
+	height: 30px;
+	color: var(--font-color);
+	border: solid 1px var(--border-gray-color);
+}
+.main-box .main-wrap .logo-wrap{
+	padding-top:55px;
+}
+.main-box .main-wrap .logo-wrap img
+{
+	width: 231px;
+	height: 44px;
+}
+
+.main-box .main-wrap header .lang-wrap{
+	display:flex;
+	justify-content:flex-end;
+}
+
+.main-box .main-wrap header .logo-wrap{
+	display:flex;	
+	flex-direction: column;
+	align-items: center;
+}
+.input-text-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-id{
+	width: 465px;
+	height :48px;
+	border: solid 1px var(	--border-gray-color );
+	background: white;
+}
+.login-password{
+	margin-top: 13px;
+}
+.login-id input{
+	border: none;
+	width:430px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+.login-button {
+	padding-top: 13px;
+}
+.login-button button{
+	width: 465px;
+	height :48px;
+	font-size: 18px;
+	background-color:blue;
+	color: white;
+	border: solid 1px pink;
+}
+
+
+.Easy-wrap{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 40px;
+
+}
+.Easy-wrap h2{
+	font-size: 20px;
+}
+.Easy-wrap .social-login
+{
+	padding-top:25px;
+	list-style: none;
+	width: 465px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.Easy-wrap .social-login li{
+	padding-bottom: 10px;
+}
+.Easy-wrap .social-login li button{
+	width: 465px;
+	height: 56px;
+	border: solid 1px gray;
+	text-align: left;
+	background: white;
+	padding-bottom: 10px;
+}
+
+
+
+.Easy-wrap .social-login li button span{
+	padding-left: 20px;
+	font-size: 18px;
+}
+
+footer{
+   
+	padding-top: 95px;
+	padding-bottom: 15px;
+
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:768px;
+
+
+
+}
+.footer-wrap{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 15px;
+
+
+}
+footer .footer-wrap span img{
+	width: 59px;
+	height: 11px;
+}
+footer .footer-wrap span{
+	font-size: 13px;
+	line-height: 15px;
+}
+
+

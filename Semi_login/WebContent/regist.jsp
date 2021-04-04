@@ -39,6 +39,7 @@
 					}
 				});
 	});
+	
 
 	//실시간 아이디 중복
 	function idCheck() {
@@ -92,18 +93,59 @@
 		}
 	}
 	
-		function emailCheck(){
-			var email = $("#email").val();
-			if ($.trim(email) == "" || $.trim(email) == null) {
-				$("#emailmsg").text("이메일을 입력해주세요");
-				$("#emailmsg").css("color", "red");
-				$("#email").focus();
-				$("#email").prop("title", "n");
-			} else {
-				$("#emailmsg").text("");
-				$("#email").prop("title", "y");
-			}
+	function Check(){
+		var email = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+		
+		if($("#id").val() == "" || $("#id").val() == null){
+			alert("아이디를 입력해주세요");
+			$("#id").focus();
+			return false;
 		}
+		
+		if($("#pw").val() == ""){
+			alert("비밀번호를 입력해주세요");
+			$("#pw").focus();
+			return false;
+		}
+		
+		if($("#chkpw").val() == ""){
+			alert("비밀번호확인을 해주세요");
+			$("#chkpw").focus();
+			return false;
+		}
+		
+		if($("#name").val() == ""){
+			alert("이름을 입력해주세요");
+			$("#name").focus();
+			return false;
+		}
+		
+		if($("#address").val() == ""){
+			alert("주소를 입력해주세요");
+			return false;
+		}
+		
+		if($("#phone").val() == ""){
+			alert("전화번호를 입력해주세요");
+			$("#phone").focus();
+			return false;
+		}
+		
+		if($("#email").val() == ""){
+			alert("이메일을 입력해주세요");
+			$("#email").focus();
+			return false;
+		}
+		
+		if(!email.test($("#email").val())){
+			alert("이메일 형식에 맞게 입력해주세요")
+			$("#email").val("");
+			$("#email").focus();
+			return false;
+		}
+	}
+	
+	
 	
 	function jusoPopup() {
 		//주소검색 수행할 팝업 페이지 호출
@@ -120,14 +162,14 @@
 
 	<h1>회원가입</h1>
 	<!-- onsubmit="return allCheck();" -->
-	<form action="regist.do" method="post" >
+	<form onsubmit="return Check();" action="regist.do" method="post" >
 		<input type="hidden" name="command" value="insertuser" />
 
 		<table>
 			<tr>
 				<th>아이디</th>
-				<td>
-					<input type="text" id="id" name="member_id" required title="n" onchange="idCheck();"/>
+				<td class="">
+					<input type="text" id="id" name="member_id" title="n" onchange="idCheck();"/>
 				</td>
 				<td id="idmsg"></td>
 			</tr>
@@ -135,7 +177,7 @@
 				<th>비밀번호</th>
 				<td>
 				<div class="pw">
-					<input type="password" id="pw" class="pw2" name="member_pw" required title="n" />
+					<input type="password" id="pw" class="pw2" name="member_pw" title="n" />
 					<div class="eyes">
 					<i class="fas fa-eye fa-lg"></i>
 					</div>
@@ -146,7 +188,7 @@
 				<th>비밀번호 확인</th>
 				<td>
 				<div class="pw">
-					<input type="password" id="chkpw" class="pw2" required title="n" oninput="passwordCheck()" />
+					<input type="password" id="chkpw" class="pw2" title="n" oninput="passwordCheck()" />
 					<div class="eyes">
 					<i class="fas fa-eye fa-lg"></i>
 					</div>
@@ -156,7 +198,7 @@
 			</tr>
 			<tr>
 				<th>이름</th>
-				<td><input type="text" id="name" name="member_name" required title="n" onchange="nameCheck();"/></td>
+				<td><input type="text" id="name" name="member_name" title="n" /></td>
 				<td id="namemsg"></td>
 			</tr>
 			<tr>
@@ -166,22 +208,22 @@
                   	<input type="text" id="zipNo" name="zipNo" readonly style="width:100px">
                     <input type="button" value="주소검색" onClick="jusoPopup();">
                 </div>
-                	<input type="text" id="address" name="member_addr" required readonly />
+                	<input type="text" id="address" name="member_addr" readonly />
                 </td>
 			</tr>
 			<tr>
 				<th>전화번호</th>
-				<td><input type="text" id="phone" name="member_phone" required title="n" /></td>
+				<td><input type="text" id="phone" name="member_phone" title="n" /></td>
 				<td id="phonemsg"></td>
 			</tr>
 			<tr>
 				<th>이메일</th>
-				<td class="email"><input type="text" id="email" name="member_email" required title="n" onchange="emailCheck();"/></td>
-				<td id="emailmsg"></td>
+				<td class="email"><input type="text" id="email" name="member_email" title="n" /></td>
+				<td>예) test@test.com</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" value="가입하기" class="signbtn" onclick="allCheck();" />
+					<input type="submit" value="가입하기" class="signbtn" />
 					<input type="button" value="메인으로" class="mainbtn" onclick="location.href='regist.do?command=loginForm'" />
 				</td>
 			</tr>

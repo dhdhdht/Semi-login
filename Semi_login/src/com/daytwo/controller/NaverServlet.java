@@ -83,7 +83,7 @@ public class NaverServlet extends HttpServlet {
 	      }
 	      br.close();
 	      if(responseCode==200) {
-	        System.out.println(res.toString());
+	        System.out.println("String res :" + res.toString());
 	        
 	        JSONParser parsing = new JSONParser();
 	        Object obj = parsing.parse(res.toString());
@@ -118,23 +118,23 @@ public class NaverServlet extends HttpServlet {
 	        String phone = (String)resObj.get("mobile");
 	        
 	        //네이버에서 가져오는 값들(아이디, 이메일, 이름, 핸드폰번호)
-	        LoginDto dto = new LoginDto();
-	        dto.setMember_id(naverCode);
-	        dto.setMember_email(email);
-	        dto.setMember_name(name);
-	        dto.setMember_phone(phone);
+	        LoginDto dbdto = new LoginDto();
+	        dbdto.setMember_id(naverCode);
+	        dbdto.setMember_email(email);
+	        dbdto.setMember_name(name);
+	        dbdto.setMember_phone(phone);
 	        	        
-	        System.out.println("dto : " + dto.getMember_email());
+	        System.out.println("dto : " + dbdto.getMember_email());
 	        
-	        int useremailchk = biz.naverCheck(dto.getMember_email());
+	        int useremailchk = biz.naverCheck(dbdto.getMember_email());
 	        
 	        
 	        //이미 회원일때
 	        if (useremailchk > 0) {
 	        	//1. 세션에 로그인값 담아줘야되고(이때는 naver가 아닌 db값)
-	        	LoginDto dbdto = biz.getlogininfo(email);
+	        	LoginDto dto = biz.getlogininfo(email);
 	        	
-	        	session.setAttribute("dbdto", dbdto);
+	        	session.setAttribute("dto", dto);
 	        	session.setMaxInactiveInterval(10 * 60);
 	        	//2. 유저 메인페이지로 보내줘야되고
 	        	jsResponse(response, "usermain.jsp", "네이버아이디로 로그인");
@@ -143,7 +143,7 @@ public class NaverServlet extends HttpServlet {
 	        	//회원이 아닐때
 	        	//1. 회원가입에 값이 담겨있어야되고
 	        	//2. 그 값을 회원가입페이지로 보내줘야되고
-	        	request.setAttribute("dto", dto);
+	        	request.setAttribute("dbdto", dbdto);
 	        	RequestDispatcher dispatch = request.getRequestDispatcher("nregist.jsp");
 	        	dispatch.forward(request, response);
 	        	

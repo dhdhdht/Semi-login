@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+*{
+		padding: 0px;
+		margin: 0px;
+	}
+	div{
+		border : 1px dashed blue;
+		margin:10px;
+	}
+	#wrap{
+		height: 900px;
+		display: flex;
+        flex-direction: column;
+		align-items: center;
+	}
+	
+	#wrap #header{
+		width:80%;
+		text-align :center;
+		
+	}
+	
+	#wrap #body{
+		height: 800px;
+		width:80%;
+		
+	}
+	
+	
+	#wrap #footer{
+	
+		width:80%;
+		text-align :center;
+	}
+

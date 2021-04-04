@@ -8,6 +8,10 @@
 	<resultMap type="LoginDto" id="myboardmap">
 		<result property="member_id" column="MEMBER_ID" />
 		<result property="member_pw" column="MEMBER_PW" />
+		<result property="member_name" column="MEMBER_NAME" />
+		<result property="member_addr" column="MEMBER_ADDR" />
+		<result property="member_phone" column="MEMBER_PHONE" />
+		<result property="member_email" column="MEMBER_EMAIL" />
 	</resultMap>
 	
 	
@@ -18,7 +22,7 @@
   	
   	<insert id="reginsert" parameterType="loginDto">
   		INSERT INTO MEMBER
-  		VALUES(MEMBERSEQ.NEXTVAL, #{member_id}, #{member_pw}, #{member_name}, #{member_addr}, #{member_phone}, #{member_email}, 'Y', 'USER')
+  		VALUES(MEMBERSEQ.NEXTVAL, #{member_id}, #{member_pw}, #{member_name}, #{member_addr}, #{member_phone}, #{member_email}, 'Y', 'USER', null)
   	</insert>
   	
   	<select id="login" parameterType="loginDto" resultType="loginDto">

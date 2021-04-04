@@ -57,10 +57,16 @@
 				<a href="regist.do?command=registForm">회원가입</a>
 			</li>
 		</ul>
-		<br/><br/>
+		<br/>
 		<div>
-			<a href="javascript:kakaologin();" class="link_kakao">
-			<img alt="Kakaoimage" src="resources/img/kakaologin.png" style="width:185px; height:40px;"/></a>
+			--------------또는--------------
+		</div>
+		<br/>
+		
+		<div>
+			<a href="https://kauth.kakao.com/oauth/authorize?client_id=6147ede2fee67c7e4d0316a0ef4cb677&redirect_uri=http://localhost:8787/Semi_login/kakao.do&response_type=code" class="link_kakao">
+				<img alt="Kakaoimage" src="resources/img/Klogin_y_in.png" style="width:231px; height:50px;"/>
+			</a>
 		</div>
 		<br/>
 		<!-- 네이버아이디로로그인 버튼 노출 영역 -->
@@ -87,8 +93,10 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- kakao로그인 실행 함수 -->
 <script>
+	//javascript SDK 초기화
 	//javascript key:804de9dc4d252e4123548ce16301b21c
 	Kakao.init("804de9dc4d252e4123548ce16301b21c");
+	console.log(Kakao.isInitialized());
 	
 	function kakaologin(){
 		Kakao.Auth.login({
@@ -96,7 +104,6 @@
 			scope: 'profile, account_email, gender',
 			//로그인 성공
 			success: function(authObj){
-				console.log(authObj);
 				Kakao.API.request({
 					//로그인한 사용자의 정보 가져오기
 					url:'/v2/user/me',
@@ -112,7 +119,4 @@
 		});
 	}
 </script>
-<!-- 네이버아이디로로그인 초기화 Script -->
-
-<!-- // 네이버아이디로로그인 초기화 Script -->
 </html>

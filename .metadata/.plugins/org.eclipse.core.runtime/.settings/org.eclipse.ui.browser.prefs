@@ -1,4 +1,4 @@
 browser-choice=1
 browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="2">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
 eclipse.preferences.version=1
-internalWebBrowserHistory=http\://localhost\:8787/Semi_login/|*|
+internalWebBrowserHistory=file\:///C\:/workspace/Semi/Semi_login/WebContent/resources/img/Nlogin_g_in.PNG|*|file\:/C\:/workspace/Semi/Semi_login/WebContent/resources/img/Nlogin_g_in.PNG|*|file\:///C\:/workspace/Semi/Semi_login/WebContent/resources/img/naverlogin.PNG|*|file\:/C\:/workspace/Semi/Semi_login/WebContent/resources/img/naverlogin.PNG|*|file\:///C\:/workspace/Semi/Semi_login/WebContent/resources/img/kakaologin.png|*|file\:/C\:/workspace/Semi/Semi_login/WebContent/resources/img/kakaologin.png|*|file\:///C\:/workspace/Semi/Semi_login/WebContent/resources/img/icon.PNG|*|file\:/C\:/workspace/Semi/Semi_login/WebContent/resources/img/icon.PNG|*|http\://localhost\:8787/Semi_login/|*|
